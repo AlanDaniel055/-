@@ -1,0 +1,9 @@
+{
+  "app\\(platform)\\(dashboard)\\organization\\[organizationId]\\gantt\\page.tsx -> @/components/gantt/GanttChart": {
+    "id": "app\\(platform)\\(dashboard)\\organization\\[organizationId]\\gantt\\page.tsx -> @/components/gantt/GanttChart",
+    "files": [
+      "static/css/_app-pages-browser_components_gantt_GanttChart_tsx.css",
+      "static/chunks/_app-pages-browser_components_gantt_GanttChart_tsx.js"
+    ]
+  }
+}

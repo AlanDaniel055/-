@@ -1,0 +1,12 @@
+{
+  "/api/cards/[cardId]/logs/route": "app/api/cards/[cardId]/logs/route.js",
+  "/api/cards/[cardId]/route": "app/api/cards/[cardId]/route.js",
+  "/api/organization/[organizationId]/bienvenida/route": "app/api/organization/[organizationId]/bienvenida/route.js",
+  "/api/gantt/[organizationId]/route": "app/api/gantt/[organizationId]/route.js",
+  "/(platform)/(clerk)/select-org/[[...select-org]]/page": "app/(platform)/(clerk)/select-org/[[...select-org]]/page.js",
+  "/(platform)/(dashboard)/organization/[organizationId]/settings/page": "app/(platform)/(dashboard)/organization/[organizationId]/settings/page.js",
+  "/(platform)/(dashboard)/organization/[organizationId]/activity/page": "app/(platform)/(dashboard)/organization/[organizationId]/activity/page.js",
+  "/(platform)/(dashboard)/organization/[organizationId]/bienvenida/page": "app/(platform)/(dashboard)/organization/[organizationId]/bienvenida/page.js",
+  "/(platform)/(dashboard)/organization/[organizationId]/page": "app/(platform)/(dashboard)/organization/[organizationId]/page.js",
+  "/(platform)/(dashboard)/organization/[organizationId]/gantt/page": "app/(platform)/(dashboard)/organization/[organizationId]/gantt/page.js"
+}

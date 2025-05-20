@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "id": 1747343956672,
+      "text": "Nueva tarea ",
+      "start_date": "2025-05-15 00:00",
+      "duration": 1,
+      "priority": "media",
+      "parent": 0,
+      "end_date": "2025-05-16 00:00",
+      "progress": 0
+    },
+    {
+      "id": 1747343956679,
+      "text": "Nueva tarea 2",
+      "start_date": "2025-05-16 00:00",
+      "duration": 1,
+      "priority": "alta",
+      "parent": 0,
+      "end_date": "2025-05-17 00:00",
+      "progress": 0
+    }
+  ],
+  "links": []
+}

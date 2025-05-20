@@ -1,0 +1,173 @@
+// https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+/// Represents a board in the Trello application.
+model Board {
+  // The unique identifier of the board.
+  id            String @id @default(uuid())
+
+  // The organization ID that the board belongs to.
+  orgId         String
+
+  // The title of the board.
+  title         String
+
+  // The ID of the image associated with the board.
+  imageId       String
+
+  // The thumbnail URL of the image associated with the board.
+  imageThumbUrl String @db.Text
+
+  // The full URL of the image associated with the board.
+  imageFullUrl  String @db.Text
+
+  // The username of the image owner.
+  imageUserName String @db.Text
+
+  // The HTML code for embedding the image in a webpage.
+  imageLinkHTML String @db.Text
+
+  // The lists associated with the board.
+  lists         List[]
+
+  // The timestamp when the board was created.
+  createdAt     DateTime @default(now())
+
+  // The timestamp when the board was last updated.
+  updatedAt     DateTime @updatedAt
+}
+
+/// Represents a list in the Trello application.
+model List {
+  /// The unique identifier of the list.
+  id        String @id @default(uuid())
+
+  /// The title of the list.
+  title     String
+
+  /// The order of the list.
+  order     Int
+
+  /// The ID of the board that this list belongs to.
+  boardId   String
+
+  /// The board that this list belongs to.
+  board     Board  @relation(fields: [boardId], references: [id], onDelete: Cascade)
+
+  /// The cards associated with this list.
+  cards     Card[]
+
+  /// The timestamp when the list was created.
+  createdAt     DateTime @default(now())
+
+  /// The timestamp when the list was last updated.
+  updatedAt     DateTime @updatedAt
+
+  /// Index for efficient querying of lists by boardId.
+  @@index([boardId])
+}
+
+/// Represents a card in a Trello board.
+model Card {
+  /// The unique identifier of the card.
+  id        String @id @default(uuid())
+
+  /// The title of the card.
+  title     String
+
+  /// The order of the card within its list.
+  order     Int
+
+  /// The description of the card (optional).
+  description String? @db.Text
+
+  /// The ID of the list that the card belongs to.
+  listId    String
+
+  /// The list that the card belongs to.
+  list      List   @relation(fields: [listId], references: [id], onDelete: Cascade)
+
+  /// The timestamp when the card was created.
+  createdAt     DateTime @default(now())
+
+  /// The timestamp when the card was last updated.
+  updatedAt     DateTime @updatedAt
+
+  /// Index for efficient querying of cards by listId.
+  @@index([listId])
+}
+
+enum ACTION {
+  CREATE
+  UPDATE
+  DELETE
+}
+
+enum ENTITY_TYPE {
+  BOARD
+  LIST
+  CARD
+}
+
+/// Represents an audit log entry in the system.
+model AuditLog {
+  /// The unique identifier of the audit log entry.
+  id          String  @id @default(uuid())
+
+  /// The organization ID associated with the audit log entry.
+  orgId       String
+
+  /// The action performed in the audit log entry.
+  action      ACTION
+
+  /// The ID of the entity associated with the audit log entry.
+  entityId    String
+
+  /// The type of the entity associated with the audit log entry.
+  entityType  ENTITY_TYPE
+
+  /// The title of the entity associated with the audit log entry.
+  entityTitle String
+
+  /// The ID of the user associated with the audit log entry.
+  userId      String
+
+  /// The image URL of the user associated with the audit log entry.
+  userImage   String @db.Text
+
+  /// The name of the user associated with the audit log entry.
+  userName    String @db.Text
+
+  /// The timestamp when the audit log entry was created.
+  createdAt   DateTime @default(now())
+
+  /// The timestamp when the audit log entry was last updated.
+  updatedAt   DateTime  @updatedAt
+}
+model OrgLimit {
+  id         String  @id @default(uuid())
+  orgId      String  @unique
+  count      Int     @default(0) // Cuántos boards tiene actualmente la org
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+model OrgSubscription {
+  id                     String   @id @default(uuid())
+  orgId                  String   @unique
+  stripeCustomerId       String
+  stripeSubscriptionId   String
+  stripePriceId          String
+  stripeCurrentPeriodEnd DateTime
+
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+}

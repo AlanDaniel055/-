@@ -1,7 +1,7 @@
-## Instalación de Dependencias
+##Instalación de Dependencias
 
-Antes de iniciar el proyecto, instala las siguientes dependencias y cambiar el nombre del env a (.env) unicamente al igual que tus llaves para las dependencias como clerk y base de datos:
-
+1. Antes de iniciar el proyecto, instala las siguientes dependencias y cambiar el nombre del env a (.env) dentro de este archivo especificar tus llaves de acceso y conexion a base de datos
+2. El archivo kanban.sql es la base de datos exportalo a tu xampp
 ```bash
 #Instalacion
 

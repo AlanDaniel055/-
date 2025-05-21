@@ -1,14 +1,18 @@
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_bG9naWNhbC1yYWJiaXQtODIuY2xlcmsuYWNjb3VudHMuZGV2JA
-CLERK_SECRET_KEY=sk_test_R6NhDydl2Nz85OvlPd0BqXGBivrpCEcYyPSq9blHF7
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
-NEXT_PUBLIC_CLERK_AFTER_SIGN_OUT_URL=/
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY= (llave de clerk publica)
+CLERK_SECRET_KEY= (llave de clerk secreta)
 
-STRIPE_SECRET_KEY=sk_test_51RBfGRRd6F70ZZ08gKa7mLiMlp8zEEPsEDtCxzXeFmjHKO3M831aMiRfsdaS3loiJkRM3DuvXNWBsCA1Qmh3mojn00PbUfX4Fd
+STRIPE_SECRET_KEY= (llave secreta de stripe)
 
-DATABASE_URL="mysql://root:alan250@localhost:3306/kanban"
-DIRECT_URL="mysql://root:alan250@localhost:3306/kanban"
+(llave de gemini para el asistente AI)
+GEMINI_API_KEY=
 
-GEMINI_API_KEY=AIzaSyDI3a9ZFomdel4r-59WoG2TVpHSh_A5KgQ
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in (asi va)
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up (asi va)
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/ (asi va)
+NEXT_PUBLIC_CLERK_AFTER_SIGN_OUT_URL=/ (asi va)
+
+(poner en usuario y contraseña las correspondientes a xampp)
+DATABASE_URL="mysql://usuario:contraseña@localhost:3306/kanban"
+DIRECT_URL="mysql://usuario:contraseña@localhost:3306/kanban"
+
 
